@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Picolog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% if current_user %>
-	<%= current_user.name %> : <%=link_to "Logout", logout_path %>
-	<br/>
-
-	<% if current_user.provider == "twitter" %>
-		<% url= "https://twitter.com/" + current_user.screen_name %>
-	<% elsif current_user.provider == "facebook" %>
-		<% url= "http://www.facebook.com/" + current_user.screen_name %>
-	<% end %>
-
-	<%= link_to(image_tag(current_user.image, :alt => current_user.screen_name), url) %>
-
-<% else %>
-	<%= link_to "Twitter Login", "/auth/twitter" %>
-	<br/>
-	<%= link_to "Facebook Login", "/auth/facebook" %>
-<% end %>
-
-<%= yield %>
-
+	<div data-role="page">
+	<%= yield %>
+  </div>
 </body>
 </html>

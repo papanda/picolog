@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.mobile.init
+//= require jquery.mobile-1.1.0-rc.2
