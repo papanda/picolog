@@ -9,4 +9,7 @@ class SessionsController < ApplicationController
 		session[:user_id] = nil
 		redirect_to :root, :notice => "logout"
 	end
+	def failure
+		render :text => "<span style='color: red;'>Auth Failure</span>"
+	end
 end
