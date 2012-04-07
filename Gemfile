@@ -37,4 +37,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "rspec-rails", ">= 2.6.0", :group => [:development, :test]
-gem "omniauth"
+gem "omniauth-twitter"
