@@ -11,7 +11,7 @@
 <% if current_user %>
 	<%= current_user.name %> : <%=link_to "Logout", logout_path %>
 <% else %>
-	<% link_to "Login", "/auth/twitter" %>
+	<%= link_to "Login", "/auth/twitter" %>
 <% end %>
 
 <%= yield %>
