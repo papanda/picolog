@@ -15,10 +15,21 @@
 
         <%= link_to(image_tag(current_user.image, :alt => current_user.screen_name), url) %>
 
+        <% if flash[:notice] %>
+          <div id="notice">
+            <%= flash[:notice] %>
+          </div>
+        <%end%>
+
+        <%= form_tag(:controller=>"dialogs", :action=>"keyword") do %>
+          <div data-role="fieldcontain">
+            <label for="keyword">ダイアログの合言葉をいれよう: </label>
+            <%= text_field_tag("keyword", nil, :placeholder=>"例えば パンダ") %>
+            <%= submit_tag("ダイアログを始める") %>
+          </div>
+        <% end %>
       <% else %>
-        <%= link_to "TwitterでLoginする", "/auth/twitter", "data-role" => "button",
-            :rel => "external" %>
-        <%= link_to "FacebookでLoginする", "/auth/facebook", "data-role" => "button",
-            :rel =>"external" %>
+        <%= link_to "TwitterでLoginする", "/auth/twitter", "data-role" => "button", :rel => "external" %>
+        <%= link_to "FacebookでLoginする", "/auth/facebook", "data-role" => "button", :rel =>"external" %>
       <% end %>
     </div>

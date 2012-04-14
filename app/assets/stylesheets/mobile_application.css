@@ -11,3 +11,6 @@
  *= require_self
  *= require jquery.mobile-1.1.0-rc.2
 */
+#notice {
+  color:  red;
+}

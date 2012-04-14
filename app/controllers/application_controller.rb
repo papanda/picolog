@@ -1,8 +1,9 @@
+# coding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout :set_layout
 
-  before_filter :set_iphone_format, :reset_session_expires
+  before_filter :set_iphone_format, :japanese!, :reset_session_expires
   helper_method :current_user
 
   def set_iphone_format
@@ -15,6 +16,11 @@ class ApplicationController < ActionController::Base
   private
   def iphone_request?
     request.user_agent =~ /(Mobile.+Safari)/
+  end
+  def japanese!
+    I18n.locale = :ja
+    Time.zone = 'Asia/Tokyo'
+    response['Content-Language'] = 'content="ja"'
   end
   def reset_session_expires
   	request.session_options[:expire_after] = 5.minutes
