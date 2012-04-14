@@ -1,6 +1,19 @@
     <div data-role="header">
-      <h1>Home</h1>
+      <h1><%= @dialog.name %></h1>
     </div>
 
     <div data-role="content">
+      <%= form_tag(:controller=>"results", :action=>"create") do %>
+        <div data-role="fieldcontain">
+        	<label for="question"><%= @question.content %></label>
+        	<fieldset data-role="controlgroup">
+        		<% @question.choices.each do |choice| %>
+        			<%= radio_button_tag "choice","",false, :id=>choice.id %>
+        			<label for= <%= choice.id %> ><%= choice.content %></label>
+        		<% end %>
+        	</fieldset>
+        	<%= hidden_field_tag "now_num", @question_num %>
+          <%= submit_tag("回答する") %>        	
+        </div>
+      <% end %>
     </div>

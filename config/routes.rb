@@ -1,6 +1,8 @@
 Picolog::Application.routes.draw do
+
   resources :dialogs
-  match "dialogs/keyword", :controller => :dialogs, :action => :keyword
+  resources :results
+  match "dialogs/init", :controller => :dialogs, :action => :init
 
   mount RailsAdmin::Engine => '/app_admin', :as => 'rails_admin'
 

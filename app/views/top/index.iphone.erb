@@ -21,7 +21,7 @@
           </div>
         <%end%>
 
-        <%= form_tag(:controller=>"dialogs", :action=>"keyword") do %>
+        <%= form_tag(:controller=>"dialogs", :action=>"init") do %>
           <div data-role="fieldcontain">
             <label for="keyword">ダイアログの合言葉をいれよう: </label>
             <%= text_field_tag("keyword", nil, :placeholder=>"例えば パンダ") %>

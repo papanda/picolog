@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
 		auth = request.env["omniauth.auth"]
 		user = User.where(:provider => auth["provider"], :uid => auth["uid"]).first || User.create_with_omniauth(auth)
 		session[:user_id] = user.id
-		redirect_to :root, :notice => "login"
+		redirect_to :root
 	end
 	def destroy
 		session[:user_id] = nil
-		redirect_to :root, :notice => "logout"
+		redirect_to :root, :notice => "ログアウトしました。"
 	end
 	def failure
 		render :text => "<span style='color: red;'>Auth Failure</span>"
