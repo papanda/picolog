@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120407044726) do
+ActiveRecord::Schema.define(:version => 20120414063832) do
+
+  create_table "choices", :force => true do |t|
+    t.text     "content"
+    t.integer  "question_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "dialogs", :force => true do |t|
+    t.string   "name"
+    t.string   "keyword"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.text     "content"
+    t.integer  "dialog_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "results", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "dialog_id"
+    t.integer  "question_id"
+    t.integer  "choice_id"
+    t.datetime "answer_day"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "provider"

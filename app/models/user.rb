@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many	:results
+
 	def self.create_with_omniauth(auth)
 		user = User.new
 		user[:provider] = auth["provider"]
