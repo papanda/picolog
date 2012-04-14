@@ -16,8 +16,9 @@
         <%= link_to(image_tag(current_user.image, :alt => current_user.screen_name), url) %>
 
       <% else %>
-        <%= link_to "TwitterでLoginする", "/auth/twitter", :rel => "external" %>
-        <br/>
-        <%= link_to "FacebookでLoginする", "/auth/facebook", :rel => "external" %>
+        <%= link_to "TwitterでLoginする", "/auth/twitter", "data-role" => "button",
+            :rel => "external" %>
+        <%= link_to "FacebookでLoginする", "/auth/facebook", "data-role" => "button",
+            :rel =>"external" %>
       <% end %>
     </div>
