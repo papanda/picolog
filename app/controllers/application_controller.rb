@@ -18,9 +18,11 @@ class ApplicationController < ActionController::Base
     request.user_agent =~ /(Mobile.+Safari)/
   end
   def japanese!
-#    I18n.locale = :ja
-#    Time.zone = 'Asia/Tokyo'
-#    response['Content-Language'] = 'content="ja"'
+    if iphone_request?
+      I18n.locale = :ja
+      Time.zone = 'Asia/Tokyo'
+      response['Content-Language'] = 'content="ja"'
+    end
   end
   def reset_session_expires
   	request.session_options[:expire_after] = 120.minutes

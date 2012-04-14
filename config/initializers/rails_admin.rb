@@ -5,7 +5,7 @@ RailsAdmin.config do |config|
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
   # require 'i18n'
-  # I18n.default_locale = :de
+  # I18n.default_locale = :ja
 
   config.current_user_method { current_admin } # auto-generated
 

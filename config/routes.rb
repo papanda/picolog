@@ -1,8 +1,9 @@
 Picolog::Application.routes.draw do
 
-  resources :dialogs
   resources :results
   match "dialogs/init", :controller => :dialogs, :action => :init
+  match "dialogs/ask", :controller => :dialogs, :action => :ask
+  match "results/vote", :controller => :results, :action => :vote
 
   mount RailsAdmin::Engine => '/app_admin', :as => 'rails_admin'
 

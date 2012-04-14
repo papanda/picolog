@@ -1,0 +1,13 @@
+    <div data-role="header">
+      <h1>回答しました</h1>
+    </div>
+
+    <div data-role="content">
+      <%= form_tag(:controller=>"dialogs", :action=>"ask") do %>
+        <div data-role="fieldcontain">
+        	<%= hidden_field_tag "dialog_id", @result.dialog_id %>
+        	<%= hidden_field_tag "question_id", @result.question_id %>
+          <%= submit_tag("次の問いへ") %>        	
+        </div>
+      <% end %>
+    </div>
