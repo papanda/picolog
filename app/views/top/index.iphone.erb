@@ -1,0 +1,24 @@
+    <div data-role="header">
+      <h1>Home</h1>
+    </div>
+
+    <div data-role="content">
+      <% if current_user %>
+        <%= current_user.name %> : <%=link_to "Logout", logout_path, :rel => "external" %>
+        <br/>
+
+        <% if current_user.provider == "twitter" %>
+          <% url= "https://twitter.com/" + current_user.screen_name %>
+        <% elsif current_user.provider == "facebook" %>
+          <% url= "http://www.facebook.com/" + current_user.screen_name %>
+        <% end %>
+
+        <%= link_to(image_tag(current_user.image, :alt => current_user.screen_name), url) %>
+
+      <% else %>
+        <%= link_to "TwitterでLoginする", "/auth/twitter", "data-role" => "button",
+            :rel => "external" %>
+        <%= link_to "FacebookでLoginする", "/auth/facebook", "data-role" => "button",
+            :rel =>"external" %>
+      <% end %>
+    </div>
