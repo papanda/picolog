@@ -13,9 +13,9 @@ class DialogsController < ApplicationController
   def ask
     @dialog = Dialog.find_by_id(params[:dialog_id])
     if session[:now_num].to_i > params[:question_id].to_i
-      @question = @dialog.questions.where(:id => session[:now_num]).first
+      @question = @dialog.questions.where(:num => session[:now_num]).first
     else
-      @question = @dialog.questions.where(:id => params[:question_id]).first
+      @question = @dialog.questions.where(:num => params[:question_id]).first
     end
     render :action => "show", :id => @dialog.id
   end
