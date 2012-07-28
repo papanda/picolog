@@ -19,8 +19,8 @@
         		<% end %>
         	</fieldset>
         	<%= hidden_field_tag "dialog_id", @dialog.id %>
-        	<%= hidden_field_tag "question_id", @question.id %>
-          <%= submit_tag("回答する") %>        	
+        	<%= hidden_field_tag "question_id", @question.num %>
+          <%= submit_tag("回答する") %>
         </div>
       <% end %>
     </div>
