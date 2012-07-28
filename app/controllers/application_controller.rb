@@ -7,18 +7,21 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def set_iphone_format
-    request.format = :iphone if iphone_request?
+    request.format = :iphone if (iphone_request? || android_request?)
   end
   def set_layout
-    iphone_request? ? "iphone" : "application"
+    (iphone_request? || android_request?) ? "iphone" : "application"
   end
 
   private
   def iphone_request?
     request.user_agent =~ /(Mobile.+Safari)/
   end
+  def android_request?
+    request.user_agent =~ /(Android.*Mobile)/
+  end
   def japanese!
-    if iphone_request?
+    if (iphone_request? || android_request?)
       I18n.locale = :ja
       Time.zone = 'Asia/Tokyo'
       response['Content-Language'] = 'content="ja"'

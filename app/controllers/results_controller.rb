@@ -13,7 +13,7 @@ class ResultsController < ApplicationController
       @question = Question.where("dialog_id = :dialog_id",:dialog_id => params[:dialog_id]).order(:num).last
       if session[:now_num].to_i > @question.num
         render :text => "おしまい"
-      else  
+      else
         render :action => "show", :id => @result.id
       end
     else
