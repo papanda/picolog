@@ -14,7 +14,7 @@ class ResultsController < ApplicationController
       if session[:now_num].to_i > @question.num
         render :text => "おしまい"
       else
-        render :action => "show", :id => @result.id
+        redirect_to :controller => "results", :action => "show", :id => @result.id
       end
     else
       redirect_to :controller => "dialogs", :action => "ask", :dialog_id => params[:dialog_id], :question_id => params[:question_id]
